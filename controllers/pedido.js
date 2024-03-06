@@ -20,7 +20,8 @@ const httpPedido ={
 
     postPedido: async (req,res)=>{
         try{
-            const {}
         }
+    }catch(error){
+        res.status(400).json({error:'no encontramos el id'})
     }
 }
