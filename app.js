@@ -6,6 +6,7 @@ import TipoProducto from './routes/tipo_producto.js';
 import DisArea from './routes/distribucion_area.js';
 import usuario from './routes/usuario.js';
 import items from './routes/items_presupuesto.js';
+import requerimiento from './routes/requerimiento.js';
 /* import pedido from './routes/'; */
 
 const app = express();
@@ -16,6 +17,7 @@ app.use("/api/items", items)
 /* app.use("/api/items", pedido) */
 app.use("/api/tipoProducto", TipoProducto)
 app.use("/api/disArea", DisArea)
+app.use("/api/requerimiento", requerimiento)
 
 const PORT = process.env.PORT;
 
