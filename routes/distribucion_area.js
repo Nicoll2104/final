@@ -5,12 +5,12 @@ import httpDistribucionArea from "../controllers/distribucion_area.js";
 
 const router = Router();
 
-router.get("/ver", httpDistribucionArea.getItem);
+router.get("/ver", httpDistribucionArea.getDistarea);
 
-router.get("/item/:id",[
+router.get("/DisgetDistarea/:id",[
     check("id", "El id es obligatorio").not().isEmpty(),
     validarcampos
-], httpDistribucionArea.getItemid);
+], httpDistribucionArea.getDistareaid);
 
 router.post("/agregar",[
     check("codigo_auxiliar","El codigo auxiliar es obligatorio").not().isEmpty(),
@@ -18,7 +18,7 @@ router.post("/agregar",[
     check("distribucion_red", 'La distribucion de red es obligatoria').not().isEmpty(),
     check("area_tematica", "El area tematica es obligatoria").not().isEmpty(),
     validarcampos
-], httpDistribucionArea.postItem);
+], httpDistribucionArea.postDistarea);
 
 router.put("/modificar/:id",[
     check("codigo_auxiliar","El codigo auxiliar es obligatorio").not().isEmpty(),
@@ -26,7 +26,7 @@ router.put("/modificar/:id",[
     check("distribucion_red", 'La distribucion de red es obligatoria').not().isEmpty(),
     check("area_tematica", "El area tematica es obligatoria").not().isEmpty(),
     validarcampos
-], httpDistribucionArea.putItem);
+], httpDistribucionArea.putDistarea);
 
 router.put("/inactivar/:id",[
     check("id", "Digite ID").not().isEmpty(),
@@ -41,6 +41,6 @@ router.put("/activar/:id",[
 router.delete("/eliminar/:id",[
     check("id", "Digite ID").not().isEmpty(),
     validarcampos
-], httpDistribucionArea.deleteItem);
+], httpDistribucionArea.deleteDistarea);
 
 export default router;

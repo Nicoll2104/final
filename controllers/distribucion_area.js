@@ -1,12 +1,12 @@
 import distribucion_area from "../models/distribucion_area.js";
 
 const httpDistribucionArea = {
-    getItem: async (req,res)=>{
+    getDistarea: async (req,res)=>{
         const DisArea = await distribucion_area.find()
         res.json(DisArea);
     },
 
-    getItemid: async (req,res)=>{
+    getDistareaid: async (req,res)=>{
         const {id}=req.params
         try{
             const DisArea = await distribucion_area.findById(id)
@@ -16,7 +16,7 @@ const httpDistribucionArea = {
         }
     },
 
-    postItem: async (req,res)=>{
+    postDistarea: async (req,res)=>{
         try{
             const {codigo_auxiliar, valor_presupuesto, distribucion_red, area_tematica}=req.body;
             const DisArea = new distribucion_area({codigo_auxiliar, valor_presupuesto, distribucion_red, area_tematica});
@@ -28,7 +28,7 @@ const httpDistribucionArea = {
         }
     },
 
-    putItem: async (req,res)=>{
+    putDistarea: async (req,res)=>{
         const {id}=req.params;
         const {codigo_auxiliar, valor_presupuesto, distribucion_red, area_tematica}=req.body;
 
@@ -44,7 +44,7 @@ const httpDistribucionArea = {
         }
     },
 
-    deleteItem: async (req,res)=>{
+    deleteDistarea: async (req,res)=>{
         try{
             const {id} =req.params;
             const DisArea = await distribucion_area.findByIdAndDelete(id);
@@ -54,7 +54,7 @@ const httpDistribucionArea = {
             }
             res.json({mensaje: 'La distribucion del area ha sido eliminado'})
         }catch(error){
-            res.status(500).json({error: 'Ocurrió un error al intentar eliminar al items_presupuesto' })
+            res.status(500).json({error: 'Ocurrió un error al intentar eliminar al Distareas_presupuesto' })
         }
     },
 
